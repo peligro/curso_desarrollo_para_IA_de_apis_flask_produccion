@@ -1,0 +1,24 @@
+{% extends 'layouts/frontend.html' %} {% block title%} Mistral AI {%endblock%}
+<!---->
+{% block content %}
+<h1>Mistral AI</h1>
+<p>https://docs.mistral.ai/api/#tag/chat</p>
+<ul>
+    <li>
+        <a href="{{url_for('mistral.mistral_prompt')}}">Prompt básico</a>
+    </li>
+    <li>
+        <a href="{{url_for('mistral.mistral_consulta')}}">Consulta SQL desde la IA</a>
+    </li>
+    <li>
+        <a href="{{url_for('mistral.mistral_traductor')}}">Traductor de textos</a>
+    </li>
+    <li>
+        <a href="{{url_for('mistral.mistral_sentimiento')}}">Análisis de sentimiento</a>
+    </li>
+    <li>
+        <a href="{{url_for('mistral.mistral_chat_con_historial')}}">Chat con historial</a>
+    </li>
+    
+</ul>
+{% endblock %}

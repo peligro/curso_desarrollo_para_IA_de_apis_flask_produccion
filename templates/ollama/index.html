@@ -1,0 +1,27 @@
+{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
+<!---->
+{% block content %}
+<h1>Ollama AI</h1>
+<p>https://docs.ollama.com/</p>
+<p>docker -it exec ollama_service ollama pull tinyllama</p>
+<ul>
+    <li>
+        <a href="{{url_for('ollama.ollama_prompt')}}">Prompt básico</a>
+    </li>
+     <li>
+        <a href="{{url_for('ollama.ollama_consulta')}}">Consulta SQL desde la IA</a>
+    </li>
+    <li>
+        <a href="{{url_for('ollama.ollama_traductor')}}">Traductor de textos</a>
+    </li>
+    <li>
+        <a href="{{url_for('ollama.ollama_sentimiento')}}">Análisis de sentimiento</a>
+    </li>
+    <li>
+        <a href="{{url_for('ollama.ollama_chat_con_historial')}}">Chat con historial</a>
+    </li>
+    
+     
+    
+</ul>
+{% endblock %}
