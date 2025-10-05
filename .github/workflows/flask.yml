@@ -59,13 +59,16 @@ jobs:
           script: |
             cd /home/ubuntu/proyecto
             
-            # Hacer pull a la rama main
+            # hacemos pull a la rama main ...  
             echo "Pulling latest code from main branch..."
             git fetch origin main
             git reset --hard origin/main
 
-            # Crear archivo .env a partir del ejemplo
-            echo "Creando archivo .env..."
+            
+            
+
+            # Cree un .env nuevo en la carpeta laravel a partir del ejemplo
+            echo "creando archivo .env..."
             
             cp .env.example .env.template
             
@@ -96,7 +99,7 @@ jobs:
             grep -v "^AWS_BUCKET_URL=" | \
             grep -v "^AWS_BUCKET=" > .env.clean
             
-            # Añadir las variables correctas desde los secrets
+            # Añade las variables correctas
             {
               cat .env.clean
               echo "FLASK_PORT=${{ secrets.FLASK_PORT }}"
@@ -124,22 +127,20 @@ jobs:
               echo "AWS_SECRET_ACCESS_URL=${{ secrets.AWS_SECRET_ACCESS_URL }}"
               echo "AWS_BUCKET_URL=${{ secrets.AWS_BUCKET_URL }}"
               echo "AWS_BUCKET=${{ secrets.AWS_BUCKET }}"
-            } | awk '!seen[$0]++' | grep -v "^$" > .env
+            } | awk '!seen[$0]++' | grep -v "^$" | grep -v "^#" > .env
             
-            # Limpiar archivos temporales
+            # Limpiar archivos temporales   
             rm -f .env.template .env.clean
             
-            # Mostrar el contenido final del .env para depuración (sin mostrar valores sensibles)
-            echo "Final .env content (estructura):"
-            grep -E "^(FLASK_|PINECONE_|PERPLEXITY_|CLAUDE_|OPENAI_|DEEPSEEK_|GEMINI_|MISTRAL_|OLLAMA_|ENVIRONMENT|AWS_)" .env | \
-            sed 's/=.*/=***/' | head -20
+            # Mostrar el contenido final del .env para depuración
+            echo "Final .env content (relevant variables):"
+            grep -E "^(APP_|DB_)" .env
             echo "---"
             echo "Total lines in .env:"
             wc -l .env
             
-            # Verificar que los archivos necesarios existen
-            echo "Verificando archivos del proyecto..."
-            ls -la docker-compose.yml Dockerfile requirements.txt
+           
+            
             
             echo "Detener y limpiar contenedores Docker..."
             docker compose down || true
@@ -151,14 +152,6 @@ jobs:
             docker compose up --build -d
             
             echo "Esperando a que los contenedores estén listos..."
-            sleep 10
+            sleep 5
             
-            # Verificar que los servicios estén corriendo
-            echo "Estado de los contenedores:"
-            docker compose ps
-            
-            # Health check
-            echo "Realizando health check..."
-            curl -f http://localhost/health || echo "Health check falló - continuando..."
-            
-            echo "¡Implementación completada exitosamente!"
+            echo "¡Implementación completada exitosamente!!!!"
