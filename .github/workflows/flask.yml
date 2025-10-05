@@ -68,7 +68,7 @@ jobs:
             
 
             # Cree un .env nuevo en la carpeta laravel a partir del ejemplo
-            echo "creando archivo .env..."
+            echo "creando archivo .env... "
             
             cp .env.example .env.template
             
