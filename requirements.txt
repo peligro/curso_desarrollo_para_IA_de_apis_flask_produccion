@@ -20,7 +20,7 @@ PyPDF2==3.0.1
 
 # Base de datos vectorial Pinecone
 pinecone-client==3.2.2
-# Modelo para generar embeddings (ej: all-MiniLM-L6-v2) 
+# Modelo para generar embeddings (ej: all-MiniLM-L6-v2)
 sentence-transformers==2.7.0
 # Manejo y análisis de datos
 pandas==2.2.2
