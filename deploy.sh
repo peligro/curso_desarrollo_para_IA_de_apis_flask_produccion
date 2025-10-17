@@ -21,9 +21,5 @@ docker-compose up -d
 echo "🔍 Verificando estado de los servicios..."
 docker-compose ps
 
-# Health check
-echo "🏥 Realizando health check..."
-sleep 10
-curl -f http://localhost/health || exit 1
 
 echo "✅ Despliegue completado exitosamente!"

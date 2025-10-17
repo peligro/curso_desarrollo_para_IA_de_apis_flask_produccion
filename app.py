@@ -96,7 +96,7 @@ if __name__ == '__main__':
     app = create_app()
     #print(f"puerto={os.getenv('FLASK_PORT', 8080)}")
     # Leer el puerto desde .env, con valor por defecto 5000 si no está definido
-    port = int(os.getenv('FLASK_PORT', 8080))
+    port = int(os.getenv('FLASK_PORT', 80))
     debug = True if os.getenv('FLASK_DEBUG') == 'True' else False
     app.run(
         debug=debug,
