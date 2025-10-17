@@ -10,7 +10,7 @@ echo "📦 Construyendo imágenes Docker..."
 docker-compose build
 
 # Detener servicios existentes
-echo "🛑 Deteniendo servicios anteriores... "
+echo "🛑 Deteniendo servicios anteriores..."
 docker-compose down
 
 # Iniciar servicios
