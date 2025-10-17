@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from integraciones.ejercicio_1 import retornarContecto, get_consulta_rag_mistral, get_consulta_rag_ollama, get_consulta_rag_gemini, get_consulta_rag_claude, get_consulta_rag_deepseek, get_consulta_rag_openai
-#from integraciones.ejercicio_2 import RecetasRAG, get_recetas_rag
+from integraciones.ejercicio_2 import RecetasRAG, get_recetas_rag
 import os
 import time
 
@@ -59,7 +59,7 @@ def rag_chatbot_atencion_cliente():
 
 
 
-"""
+
 
 @rag_bp.route('/rag/buscador-recetas', methods=['GET', 'POST'])
 def rag_buscador_recetas():
@@ -116,4 +116,3 @@ def actualizar_base_datos():
         flash(f'❌ Error actualizando base de datos: {str(e)}', 'error')
     
     return redirect(url_for('rag.rag_buscador_recetas'))
-"""
