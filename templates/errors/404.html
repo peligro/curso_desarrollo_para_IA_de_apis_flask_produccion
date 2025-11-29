@@ -1,9 +1,12 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Error 404 {% endblock %}
+
 {% block content %}
-<h1>Ups,página no encontrada</h1>
-     
-    <p>
-        <img src="{{url_for('static', filename='img/404.png')}}"  />
-    </p>
+
+<h1>Ups, página no encontrada</h1>
+<p>
+    <img src="{{url_for('static', filename='img/404.png')}}" alt="" />
+</p>
+
 {% endblock %}

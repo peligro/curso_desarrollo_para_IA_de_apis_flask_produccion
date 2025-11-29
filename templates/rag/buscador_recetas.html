@@ -15,22 +15,23 @@
 
 <div class="row">
     <div class="col-12">
+        {% include('componentes/flash.html') %}
         <h1>RAG (Retrieval Augmented Generation)</h1>
         <h4>Ejercicio 2: RAG con Pinecode - Buscador Inteligente de Recetas</h4>
         <p class="lead">Encuentra recetas usando búsqueda semántica con Pinecone</p>
 
         <div class="row mb-3">
-    <div class="col-12">
-        <hr />
-        <form action="{{ url_for('rag.actualizar_base_datos') }}" method="post" class="d-inline">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-            <button type="submit" class="btn btn-warning btn-sm">
-                <i class="fas fa-sync-alt"></i> Actualizar Base de Datos desde JSON o API
-            </button>
-        </form>
-        <hr />
-    </div>
-    </div>
+            <div class="col-12">
+                <hr />
+                <form action="{{ url_for('rag.actualizar_base_datos') }}" method="post" class="d-inline">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                    <button type="submit" class="btn btn-warning btn-sm">
+                        <i class="fas fa-sync-alt"></i> Actualizar Base de Datos desde JSON o API
+                    </button>
+                </form>
+                <hr />
+            </div>
+        </div>
      
         
         <form action="{{ url_for('rag.rag_buscador_recetas') }}" method="post">

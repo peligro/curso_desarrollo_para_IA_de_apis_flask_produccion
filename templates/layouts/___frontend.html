@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desarrollo para IA: De APIs con Flask - {% block title %} {% endblock %}</title>
+    <link rel="icon" href="{{url_for('static', filename='img/favicon.ico', _external=False)}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css', _external=True)}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    
+    <!--contenido-->
+    {% block content %}{% endblock %}
+    <!--/contenido-->
+</body>
+</html>

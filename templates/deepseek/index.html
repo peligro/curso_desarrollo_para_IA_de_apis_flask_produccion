@@ -1,7 +1,10 @@
-{% extends 'layouts/frontend.html' %} {% block title%} DeepSeek {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Deepseek AI {% endblock %}
+
 {% block content %}
-<h1>DeepSeek AI</h1>
+
+<h1>Deepseek AI</h1>
 <p>https://api-docs.deepseek.com/</p>
 <ul>
     <li>
@@ -19,5 +22,11 @@
     <li>
         <a href="{{url_for('deepseek.deepseek_chat_con_historial')}}">Chat con historial</a>
     </li>
+    
 </ul>
+ 
+
+ 
+ 
+
 {% endblock %}

@@ -1,5 +1,4 @@
 from flask import Blueprint, abort, Response, current_app
-import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
 import os
 import mimetypes

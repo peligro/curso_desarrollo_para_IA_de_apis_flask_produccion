@@ -1,8 +1,11 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Gemini AI {% endblock %}
+
 {% block content %}
+
 <h1>Gemini AI</h1>
-<p>https://ai.google.dev/gemini-api/docs?hl=es-419</p>
+<p>https://ai.google.dev/gemini-api/docs?hl=es-419#rest</p>
 <ul>
     <li>
         <a href="{{url_for('gemini.gemini_prompt')}}">Prompt básico</a>
@@ -17,16 +20,21 @@
         <a href="{{url_for('gemini.gemini_sentimiento')}}">Análisis de sentimiento</a>
     </li>
     <li>
-        <a href="{{url_for('gemini.gemini_reconocimiento')}}">Reconocimiento de imágenes</a>
-    </li>
-    <li>
         <a href="{{url_for('gemini.gemini_chat_con_historial')}}">Chat con historial</a>
     </li>
     <li>
-        <a href="{{url_for('gemini.gemini_audio')}}">Transcribir Audio</a>
+        <a href="{{url_for('gemini.gemini_reconocimiento')}}">Reconocimiento de imágenes</a>
+    </li>
+    <li>
+        <a href="{{url_for('gemini.gemini_audio')}}">Transcribir audio</a>
     </li>
     <li>
         <a href="{{url_for('gemini.gemini_video')}}">Analizar video</a>
     </li>
 </ul>
+ 
+
+ 
+ 
+
 {% endblock %}

@@ -1,6 +1,9 @@
-{% extends 'layouts/frontend.html' %} {% block title%} OpenAI {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}OpenAI AI {% endblock %}
+
 {% block content %}
+
 <h1>OpenAI AI</h1>
 <p>https://platform.openai.com/docs/overview</p>
 <ul>
@@ -17,16 +20,21 @@
         <a href="{{url_for('openai.openai_sentimiento')}}">Análisis de sentimiento</a>
     </li>
     <li>
+        <a href="{{url_for('openai.openai_chat_con_historial')}}">Chat con historial</a>
+    </li>
+    <li>
         <a href="{{url_for('openai.openai_reconocimiento')}}">Reconocimiento de imágenes</a>
     </li>
     <li>
-        <a href="{{url_for('openai.openai_dall_e_3')}}">Generación imagen con Dall-E-3</a>
+        <a href="{{url_for('openai.openai_audio')}}">Transcribir audio</a>
     </li>
     <li>
-        <a href="{{url_for('openai.openai_audio')}}">Transcribir Audio</a>
-    </li>
-    <li>
-        <a href="{{url_for('openai.openai_chat_con_historial')}}">Chat con historial</a>
+        <a href="{{url_for('openai.openai_dall_e_3')}}">Generación de imagen con Dall-E-3</a>
     </li>
 </ul>
+ 
+
+ 
+ 
+
 {% endblock %}

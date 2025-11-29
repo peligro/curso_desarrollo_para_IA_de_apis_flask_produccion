@@ -1,40 +1,41 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Diseño {% endblock %}
+
 {% block content %}
-<h1>Arreglos</h1>
+
+<h1>Arreglo</h1>
+
 {% if paises %}
-    <p>Hay {{ paises|length }} paises</p>
-    <h2>Países:</h2>
+    <p>Hay {{paises|length}} países</p>
+    <h2>Países</h2>
     <ul>
         {% for pais in paises %}
-            <li> ({{ loop.index }}) ({{ loop.index0 }}) -  {{ pais }}</li>
+            <li> ( {{loop.index}} ) - ( {{loop.index0}} ) -  {{pais}}</li>
         {% endfor %}
     </ul>
-    {% else %}
-        <p>No hay países.</p>
-    {% endif %}
-
-
-<h2>Personas:</h2>
-<p>Hay {{ personas|length }} personas</p>
-<table  class="table table-bordered table-striped table-hover" >
+{% else %}
+<p>No hay países</p>
+{% endif %}
+ 
+<h2>Personas</h2>
+<p>Hay {{personas|length}} personas</p>
+<table class="table table-bordered table-hover table-striped">
     <thead>
         <tr>
-            <th>Index</th>
+            <th>Índice</th>
             <th>Nombre</th>
             <th>Edad</th>
         </tr>
     </thead>
     <tbody>
         {% for persona in personas %}
-            <tr>
-                <td>{{loop.index}}</td>
-                <td>{{ persona.nombre }}</td>
-                <td>{{ persona.edad }}</td>
-            </tr>
+        <tr>
+            <td>{{loop.index0}}</td>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.edad}}</td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
- 
-
 {% endblock %}

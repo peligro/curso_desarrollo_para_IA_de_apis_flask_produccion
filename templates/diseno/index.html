@@ -1,11 +1,16 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Diseño {% endblock %}
+
 {% block content %}
-<h1>Título</h1>
-    <p>{{mensaje}}</p>
-    <p>{{title}}</p>
-    <p>{{html|safe}}</p>
-    <p>
-        <img src="{{url_for('static', filename='img/logo.png')}}" alt="logo.png" />
-    </p>
+
+<h1>Título de diseño</h1>
+<p>{{mensaje}}</p>
+<p>{{title}}</p>
+<p>{{html | safe}}</p>
+<p>{{html}}</p>
+<p>
+    <img src="{{url_for('static', filename='img/logo.png', _external=True)}}" alt="" />
+</p>
+
 {% endblock %}

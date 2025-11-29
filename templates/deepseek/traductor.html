@@ -1,20 +1,24 @@
-{% extends 'layouts/frontend.html' %} {% block title%} DeepSeek {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Deepseek AI {% endblock %}
+
 {% block content %}
+
 <div class="row">
-    <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item"><a href="{{url_for('deepseek.deepseek_index')}}">DeepSeek</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Traductor de textos</li>
-  </ol>
-</nav>
+      <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item"><a href="{{url_for('deepseek.deepseek_index')}}">Deepseek AI</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Traductor de textos</li>
+    </ol>
+    </nav>
 </div>
 <div class="row">
     <div class="col-12">
         {% include('componentes/flash.html') %}
-        <h1>DeepSeek - Traductor de textos</h1>
-        <form action="{{ url_for('deepseek.deepseek_traductor') }}" method="post">
+        <h1>Deepseek AI - Traductor de textos</h1>
+        <form action="{{url_for('deepseek.deepseek_traductor')}}" method="post">
+            
             <div class="form-group">
                 <label for="idioma">Idioma</label>
                 <select name="idioma" id="idioma" class="form-control">
@@ -27,49 +31,51 @@
                     <option value="Latín" {% if request.form.idioma == 'Latín' %}selected{% endif %}>Latín</option>
                     <option value="Árabe" {% if request.form.idioma == 'Árabe' %}selected{% endif %}>Árabe</option>
                     <option value="Japonés" {% if request.form.idioma == 'Japonés' %}selected{% endif %}>Japonés</option>
-                    <option value="Mapuzugun" {% if request.form.idioma == 'Mapuzugun' %}selected{% endif %}>Mapuzugun</option>
+                    <option value="Mapudugun" {% if request.form.idioma == 'Mapudugun' %}selected{% endif %}>Mapudugun</option>
                     <option value="Quechua" {% if request.form.idioma == 'Quechua' %}selected{% endif %}>Quechua</option>
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="prompt">Prompt</label>
-                <textarea name="prompt" id="prompt" class="form-control" placeholder="Indica tu pregunta">{{ request.form.prompt or '' }}</textarea>
+                <textarea name="prompt" id="prompt" class="form-control" placeholder="Indica tu pregunta">{{request.form.prompt or ''}}</textarea>
             </div>
-
             <hr />
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-
-            <input type="submit" value="Enviar" title="Enviar" class="btn btn-primary" />
+            <input type="hidden" name="csrf_token" value="{{csrf_token()}}" />
+            <input type="submit" class="btn btn-primary" value="Enviar" title="Enviar" />
         </form>
     </div>
 </div>
-<!-- Solo mostrar la respuesta y el tiempo si viene de una petición POST y hay datos -->
-{% if   respuesta %}
-<div class="row mt-4">
-    <div class="card">
-        <div className="card-header">
-            <h3 className="card-title">Respuesta de DeepSeek AI:</h3>
-            <h5>Se tomó {{tiempo_transcurrido}} segundos</h5>
-        </div>
-        <div class="card-body">
-            <div class="alert alert-info">
-                <pre class="mb-0" style="white-space: pre-wrap;">
-                    {{respuesta}}
-                </pre>
+<!--Sólo mostrar la respuesta y el tiempo si viene de una petición POST y hay datos-->
+ {% if respuesta %}
+    <div class="row mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Respuesta de Deepseek AI</h3>
+                <h5>Se tomó {{tiempo_transcurrido}} segundos</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <pre class="mb-0" style="white-space: pre-wrap;">
+                        {{respuesta}}
+                    </pre>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% else %}
+ {% else %}
 <div class="row mt-4">
-    <div class="card">
-         
-        <div class="card-body">
-            <div class="alert alert-warning">
-                No se recibió respuesta de la IA
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    No se recibió respuesta de la IA
+                </div>
             </div>
         </div>
     </div>
-</div>
- {%endif%}
+ {% endif %}
+
+ 
+ 
+
 {% endblock %}

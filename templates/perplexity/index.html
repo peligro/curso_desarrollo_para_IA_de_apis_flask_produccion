@@ -1,6 +1,9 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Perplexity {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Perplexity AI {% endblock %}
+
 {% block content %}
+
 <h1>Perplexity AI</h1>
 <p>https://docs.perplexity.ai/getting-started/overview</p>
 <ul>
@@ -8,16 +11,16 @@
         <a href="{{url_for('perplexity.perplexity_busqueda')}}">Búsqueda básica</a>
     </li>
     <li>
-        <a href="{{url_for('perplexity.perplexity_investigacion_avanzada')}}">Investigación Avanzada</a>
-    </li>
-    <li>
-        <a href="{{url_for('perplexity.perplexity_chat_con_historial')}}">Chat con historial</a>
+        <a href="{{url_for('perplexity.perplexity_investigacion_avanzada')}}">Investigación avanzada</a>
     </li>
     <li>
         <a href="{{url_for('perplexity.perplexity_busqueda_comparativa')}}">Búsqueda comparativa</a>
     </li>
-    <li>
-        <a href="{{url_for('perplexity.perplexity_citas_automaticas')}}">Citas automáticas</a>
-    </li>
+    
 </ul>
+ 
+
+ 
+ 
+
 {% endblock %}

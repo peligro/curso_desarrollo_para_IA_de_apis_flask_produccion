@@ -1,9 +1,17 @@
-{% extends 'layouts/frontend.html' %} {% block title%} Diseño {%endblock%}
-<!---->
+{% extends 'layouts/frontend.html' %}
+
+{% block title %}Diseño {% endblock %}
+
 {% block content %}
+
 <h1>Condiciones</h1>
 <p>Edad: {{edad}}</p>
-   <p>
-    {% if edad >=18%} es mayor de edad {% else %} es menor de edad {%endif%}
-   </p>
+<p>
+    {% if edad >=18 %}
+        es mayor de edad 
+    {% else %}
+        es menor de edad
+    {% endif %}
+</p>
+
 {% endblock %}

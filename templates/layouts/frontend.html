@@ -1,104 +1,123 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <title>Desarrollo para IA: De APIs a LangChain con Flask - {%block title %} {%endblock%}</title>
-    <link href="{{url_for('static', filename='img/favicon.ico')}}" rel="icon" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desarrollo para IA: De APIs con Flask - {% block title %} {% endblock %}</title>
+    <link rel="icon" href="{{url_for('static', filename='img/favicon.ico', _external=False)}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css', _external=True)}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css', _external=True) }}" />
 </head>
-
 <body>
     <div class="container-fluid">
-        <!--navbar-->
+        <!--nabvar-->
         <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{url_for('main.main_index', _external=True)}}">Integración de APIs de IA: De Cero a Producción</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a href="{{url_for('main.main_index', _external=True)}}" class="navbar-brand">
+                    Integración de APIs de IA: De Cero a Producción
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href={{url_for('diseno.diseno_index', _external=True)}}>Home</a>
+                            <a href="{{url_for('diseno.diseno_index', _external=True)}}" class="nav-link">Home</a>
                         </li>
-
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSeguridad" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a href="#" class="nav-link dropdown-toggle" id="id1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Primeros pasos
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownSeguridad">
+                            <ul class="dropdown-menu" aria-labelledby="id1">
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('parametros.parametros_index', id=1, slug='hola-mundo', _external=True)}}">Parámetros</a>
+                                    <a href="{{url_for('parametros.parametros_index', id=1, slug='hola-mundo', _external=True)}}" class="dropdown-item">
+                                        Parámetros
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('parametros.parametros_querystring', id=1, slug='hola-mundo', _external=False)}}">Querystring</a>
+                                    <a href="{{url_for('parametros.parametros_querystring', id=1, slug='hola-mundo', _external=True)}}" class="dropdown-item">
+                                        Querystring
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('diseno.diseno_index', _external=False)}}">Diseño</a>
+                                    <a href="{{url_for('diseno.diseno_condiciones')}}" class="dropdown-item">
+                                        Diseño condiciones
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('diseno.diseno_condiciones', _external=False)}}">Diseño condiciones</a>
+                                    <a href="{{url_for('diseno.diseno_ciclos')}}" class="dropdown-item">
+                                        Diseño ciclos
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('diseno.diseno_ciclos', _external=False)}}">Diseño ciclos</a>
+                                    <a href="{{url_for('diseno.diseno_arreglo')}}" class="dropdown-item">
+                                        Diseño arreglos
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('diseno.diseno_arreglo', _external=False)}}">Diseño arreglos</a>
+                                    <a href="{{url_for('health.health_check')}}" class="dropdown-item">
+                                        Health check
+                                    </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('health.health_check', _external=False)}}">Health Check</a>
+                                    <a href="{{url_for('formularios.formularios_simple')}}" class="dropdown-item">
+                                        Formulario simple
+                                    </a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('formularios.formularios_simple', _external=True)}}">Formulario simple</a>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                         
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSeguridad" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-sitemap"></i> Integración IAs via API
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownSeguridad">
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('ollama.ollama_index', _external=True)}}">Ollama (Modelos locales)</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('mistral.mistral_index', _external=True)}}">Mistral AI (Capa gratuita)</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('gemini.gemini_index', _external=True)}}">Gemini AI (Capa gratuita)</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('claude.claude_index', _external=True)}}">Claude Anthropic</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('deepseek.deepseek_index', _external=True)}}">DeepSeek</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('openai.openai_index', _external=True)}}">OpenAI</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{url_for('perplexity.perplexity_index', _external=True)}}">Perplexity</a>
-                                </li>
-                                
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSeguridad" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-sitemap"></i> RAG (Retrieval Augmented Generation)
+                            <a href="#" class="nav-link dropdown-toggle" id="id1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Integración IAs vía APIs
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownSeguridad">
+                            <ul class="dropdown-menu" aria-labelledby="id1">
                                 <li>
-                                    <a class="dropdown-item" href="{{url_for('rag.rag_index', _external=True)}}">RAG (Retrieval Augmented Generation)</a>
+                                    <a href="{{url_for('ollama.ollama_index', _external=True)}}" class="dropdown-item">
+                                        Ollama (Modelos locales)
+                                    </a>
                                 </li>
-                                
+                                <li>
+                                    <a href="{{url_for('mistral.mistral_index', _external=True)}}" class="dropdown-item">
+                                        Mistral AI
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('gemini.gemini_index', _external=True)}}" class="dropdown-item">
+                                        Gemini AI
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('claude.claude_index', _external=True)}}" class="dropdown-item">
+                                        Claude Anthropic AI
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('deepseek.deepseek_index', _external=True)}}" class="dropdown-item">
+                                        Deepseek AI
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('openai.openai_index', _external=True)}}" class="dropdown-item">
+                                        OpenAI AI
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('perplexity.perplexity_index', _external=True)}}" class="dropdown-item">
+                                        Perplexity AI
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="id1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                RAG (Retrieval Augmented Generation)
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="id1">
+                                <li>
+                                    <a href="{{url_for('rag.rag_index', _external=True)}}" class="dropdown-item">
+                                        RAG (Retrieval Augmented Generation)
+                                    </a>
+                                </li>
                                 
                             </ul>
                         </li>
@@ -106,17 +125,16 @@
                 </div>
             </div>
         </nav>
-        <!--/navbar-->
+        <!--/nabvar-->
     </div>
     <div class="container">
         <!--contenido-->
-        {% block content %} {% endblock %}
+        {% block content %}{% endblock %}
         <!--/contenido-->
     </div>
 
+    
 
-
-    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js', _external=True)}}"></script>
 </body>
-
 </html>
