@@ -59,7 +59,7 @@ jobs:
           script: |
             cd /home/ubuntu/proyecto
             
-            # hacemos pull a la rama main ...  
+            # hacemos pull a la rama main ...   
             echo "Pulling latest code from main branch..."
             git fetch origin main
             git reset --hard origin/main
